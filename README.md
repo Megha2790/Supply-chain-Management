@@ -19,7 +19,7 @@ Categorical variables were handled using One-Hot Encoding.
 
 Data was split into training and testing sets for model evaluation.
 
-##3. Model Building
+## 3. Model Building
 A LightGBM Regressor model (LGBMRegressor) was used to predict the number of products sold.
 
 A preprocessing pipeline was created for cleaner handling of different feature types.
