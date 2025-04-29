@@ -44,42 +44,29 @@
 - LightGBM Regressor:
 - MAE: 312.98
 - RMSE: 366.39
+- R² Score: -0.41
+* Linear Regression:
+- MAE: 341.67
+- RMSE: 388.78
+- R² Score: -0.58
+* Insights:
+- Both regression models exhibited high error rates and negative R² scores, indicating poor predictive performance.
+- The primary cause for low performance is the small dataset size and lack of critical external factors such as promotions, seasonality, or market trends.
 
-R² Score: -0.41
+## 4. Challenges and Limitations
+- Small Dataset: Only 100 samples, insufficient for training high-performing machine learning models.
+- Missing External Features: Factors like marketing efforts, seasonality, competitor pricing, etc., were not included.
+- Possible Noisy Relationships: Features included may not have a strong direct correlation with product sales quantity.
 
-Linear Regression:
+## 5. Recommendations
+- Expand Dataset: Collect more historical data and include external influencing factors.
+- Feature Engineering: Create new variables (e.g., revenue per unit, stock turnover ratio).
+- Modeling Enhancements: Experiment with ensemble methods, time series forecasting, and domain-specific modeling.
+- Periodic Retraining: Regularly retrain models with updated datasets to capture evolving demand patterns.
 
-MAE: 341.67
-
-RMSE: 388.78
-
-R² Score: -0.58
-
-Insights:
-
-Both regression models exhibited high error rates and negative R² scores, indicating poor predictive performance.
-
-The primary cause for low performance is the small dataset size and lack of critical external factors such as promotions, seasonality, or market trends.
-
-4. Challenges and Limitations
-Small Dataset: Only 100 samples, insufficient for training high-performing machine learning models.
-
-Missing External Features: Factors like marketing efforts, seasonality, competitor pricing, etc., were not included.
-
-Possible Noisy Relationships: Features included may not have a strong direct correlation with product sales quantity.
-
-5. Recommendations
-Expand Dataset: Collect more historical data and include external influencing factors.
-
-Feature Engineering: Create new variables (e.g., revenue per unit, stock turnover ratio).
-
-Modeling Enhancements: Experiment with ensemble methods, time series forecasting, and domain-specific modeling.
-
-Periodic Retraining: Regularly retrain models with updated datasets to capture evolving demand patterns.
-
-6. Conclusion
+## 6. Conclusion
 This project successfully classified products into high and low sellers with perfect accuracy using the LightGBM Classifier. Although demand forecasting models did not achieve high predictive performance due to dataset limitations, the exercise provided valuable insights into the data characteristics and modeling approaches suitable for supply chain analytics.
 
 Future improvements, especially in data richness and volume, are critical to achieving better forecasting accuracy and driving smarter supply chain decisions.
 
-✅ End of Report
+## ✅ End of Report
