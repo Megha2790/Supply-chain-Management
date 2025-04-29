@@ -1,48 +1,85 @@
-# Supply Chain Management - Demand Forecasting Report
-## 1. Overview
-Objective: To forecast the number of products sold using a machine learning model.
+# 📄 Final Report
+# Title: Product Sales Classification and Demand Forecasting for Supply Chain Management
 
-Model Performance:
+## 1. Introduction
+- In today's competitive market, effective supply chain management requires both the ability to classify products based on sales performance and to accurately forecast future demand. This project aims to apply machine learning techniques to achieve two objectives:
+- Classify products into high-selling and low-selling categories.
+- Forecast the number of products sold using regression modeling.
 
-Mean Absolute Error (MAE): Low, showing high accuracy.
+## 2. Data Overview
+- Dataset: A supply chain dataset with 100 product entries.
+- Features: Included pricing, availability, stock levels, order quantities, lead times, manufacturing and shipping details, etc.- 
+- Target Variables:
+- Classification Target: High seller (1) or Low seller (0).
+- Forecasting Target: Number of products sold (continuous).
 
-R² Score: High (close to 1), indicating an excellent fit.
+## 3. Methodology
 
-## 2. Data Preprocessing
-Missing values were evaluated and addressed appropriately.
+### 3.1 Data Preprocessing
+- Dropped irrelevant and leakage-prone columns such as SKU, Customer demographics, and Inspection results.
+- Categorical features were one-hot encoded.
+- Numerical features were standardized where necessary.
+- Data was split into training and testing subsets (80% training, 20% testing).
 
-Redundant or irrelevant columns (SKU, Customer demographics, Inspection results) were dropped to avoid data leakage.
+## 3.2 Classification Model
+- Algorithm: LightGBM Classifier (LGBMClassifier)
+- Goal: Classify products into high or low sellers.
+- Evaluation Metrics: Precision, Recall, F1-Score, Accuracy.
+*  Results:
+- Accuracy: 100%
+- Precision, Recall, F1-Score: 1.00 across both classes.
+- Insights: The model perfectly classified all products without any misclassifications.
 
-Features were categorized into numerical and categorical variables.
+## 3.3 Demand Forecasting Model
+- Algorithms Tested:
+- LightGBM Regressor (LGBMRegressor)
+- Linear Regression
+- Features Selected:
+  Price, Availability, Stock Levels, Lead Times, Order Quantities, Shipping Costs, Production Volumes, Manufacturing Costs, Defect Rates, Costs.
+* Evaluation Metrics:
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- R² Score (Coefficient of Determination)
+* Results:
+- LightGBM Regressor:
+- MAE: 312.98
+- RMSE: 366.39
 
-Categorical variables were handled using One-Hot Encoding.
+R² Score: -0.41
 
-Data was split into training and testing sets for model evaluation.
+Linear Regression:
 
-## 3. Model Building
-A LightGBM Regressor model (LGBMRegressor) was used to predict the number of products sold.
+MAE: 341.67
 
-A preprocessing pipeline was created for cleaner handling of different feature types.
+RMSE: 388.78
 
-The model was trained and validated effectively, ensuring robustness and speed.
+R² Score: -0.58
 
-## 4. Model Evaluation
-The model achieved:
+Insights:
 
-Low MAE, meaning predictions were close to the true values.
+Both regression models exhibited high error rates and negative R² scores, indicating poor predictive performance.
 
-High R² Score, meaning the model explained a large proportion of variance.
+The primary cause for low performance is the small dataset size and lack of critical external factors such as promotions, seasonality, or market trends.
 
-Business Insights:
+4. Challenges and Limitations
+Small Dataset: Only 100 samples, insufficient for training high-performing machine learning models.
 
-All high-selling and low-selling products were correctly predicted without misclassification.
+Missing External Features: Factors like marketing efforts, seasonality, competitor pricing, etc., were not included.
 
-This indicates excellent model accuracy and high confidence for operational use.
+Possible Noisy Relationships: Features included may not have a strong direct correlation with product sales quantity.
 
-## 5. Model Deployment
-While the model saving process (serialization) was not explicitly shown, it can be easily saved for production use via joblib or pickle.
+5. Recommendations
+Expand Dataset: Collect more historical data and include external influencing factors.
 
-The model outputs are ready to be integrated into supply chain decision-making systems to drive better inventory management, marketing focus, and production planning.
+Feature Engineering: Create new variables (e.g., revenue per unit, stock turnover ratio).
 
-## Conclusion
-The LightGBM model delivers highly accurate forecasts of product sales, enabling significant improvements in inventory management, reduction in stockouts, and better alignment of supply chain strategies. Regular model retraining with updated data will help maintain its predictive performance over time.
+Modeling Enhancements: Experiment with ensemble methods, time series forecasting, and domain-specific modeling.
+
+Periodic Retraining: Regularly retrain models with updated datasets to capture evolving demand patterns.
+
+6. Conclusion
+This project successfully classified products into high and low sellers with perfect accuracy using the LightGBM Classifier. Although demand forecasting models did not achieve high predictive performance due to dataset limitations, the exercise provided valuable insights into the data characteristics and modeling approaches suitable for supply chain analytics.
+
+Future improvements, especially in data richness and volume, are critical to achieving better forecasting accuracy and driving smarter supply chain decisions.
+
+✅ End of Report
